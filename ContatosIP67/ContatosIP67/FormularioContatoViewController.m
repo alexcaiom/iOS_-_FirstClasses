@@ -105,7 +105,27 @@
     }
 }
 
+- (IBAction)selecionaFoto:(id)sender {
+    UIImagePickerController* picker = [UIImagePickerController new];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    picker.allowsEditing = YES;
+    picker.delegate = self;
+    [self presentViewController:picker
+                       animated:YES
+                     completion:nil];
+}
 
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage* imagemSelecionada = [info valueForKey:UIImagePickerControllerEditedImage];
+    [self.botaoFoto setBackgroundImage:imagemSelecionada forState:UIControlStateNormal];
+    [self.botaoFoto setTitle:nil forState:UIControlStateNormal];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ListaContatosViewController.h"
+#import "ContatosNoMapaViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,13 +19,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self carregaAsTelas];
+    return YES;
+}
+
+- (void) carregaAsTelas {
     UIScreen* telaDoAparelho = [UIScreen mainScreen];
     CGRect retangulo = [telaDoAparelho bounds];
     ListaContatosViewController* lista = [ListaContatosViewController new];
     UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:lista];
+    ContatosNoMapaViewController* contatosNoMapa = [ContatosNoMapaViewController new];
+    UITabBarController* tab = [UITabBarController new];
+    tab.viewControllers = @[nav, contatosNoMapa];
     self.window = [[UIWindow alloc] initWithFrame:retangulo];
-    self.window.rootViewController = nav;
-    return YES;
+    self.window.rootViewController = tab;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

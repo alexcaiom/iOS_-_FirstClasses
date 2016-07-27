@@ -11,14 +11,14 @@
 #import "ContatoDAO.h"
 #import "FormularioContatoViewControllerDelegate.h"
 
-@interface FormularioContatoViewController : UIViewController <FormularioContatoViewControllerDelegate>
+@interface FormularioContatoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
     //tudo que esta aqui eh publico
  @property IBOutlet UITextField *nome;
  @property IBOutlet UITextField *telefone;
  @property IBOutlet UITextField *endereco;
  @property IBOutlet UITextField *email;
  @property IBOutlet UITextField *site;
- //@property IBOutlet
+ @property IBOutlet UIButton *botaoFoto;
 
  @property ContatoDAO* contatoDAO;
  @property Contato* contato;
