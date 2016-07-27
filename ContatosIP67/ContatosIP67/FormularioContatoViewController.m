@@ -19,8 +19,8 @@
     if (self) {
         self.contatoDAO = [ContatoDAO contatoDAOInstance];
         [self addBotaoSalvarABarra];
-        
     }
+    
     return self;
 }
 

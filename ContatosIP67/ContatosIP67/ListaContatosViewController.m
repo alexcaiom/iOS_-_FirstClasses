@@ -32,9 +32,20 @@
         self.contatoDAO = [ContatoDAO contatoDAOInstance];
         self.posicao = -1;
         self.numeroDeSessoes = 1;
+        
+        [self iniciarTab];
     }
     
     return self;
+}
+
+- (void) iniciarTab {
+    UIImage* icone = [UIImage imageNamed:@"lista-contatos.png"];
+    UITabBarItem* tab = [[UITabBarItem alloc]
+                         initWithTitle:@"Contatos"
+                         image:icone
+                         tag:1];
+    self.tabBarItem = tab;
 }
 
 -(void) exibeFormulario {

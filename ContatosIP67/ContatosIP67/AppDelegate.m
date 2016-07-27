@@ -26,13 +26,27 @@
 - (void) carregaAsTelas {
     UIScreen* telaDoAparelho = [UIScreen mainScreen];
     CGRect retangulo = [telaDoAparelho bounds];
-    ListaContatosViewController* lista = [ListaContatosViewController new];
-    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:lista];
-    ContatosNoMapaViewController* contatosNoMapa = [ContatosNoMapaViewController new];
+    
+    UINavigationController* listaContatosNav = [self iniciarListaContatos];
+    UINavigationController* contatosNoMapaNav = [self iniciarMapa];
+    
     UITabBarController* tab = [UITabBarController new];
-    tab.viewControllers = @[nav, contatosNoMapa];
+    tab.viewControllers = @[listaContatosNav, contatosNoMapaNav];
     self.window = [[UIWindow alloc] initWithFrame:retangulo];
     self.window.rootViewController = tab;
+
+}
+
+- (UINavigationController*) iniciarListaContatos {
+    ListaContatosViewController* lista = [ListaContatosViewController new];
+    UINavigationController* listaContatosNav = [[UINavigationController alloc] initWithRootViewController:lista];
+    return listaContatosNav;
+}
+
+- (UINavigationController*) iniciarMapa {
+    ContatosNoMapaViewController* contatosNoMapa = [ContatosNoMapaViewController new];
+    UINavigationController* contatosNoMapaNav = [[UINavigationController alloc] initWithRootViewController:contatosNoMapa];
+    return contatosNoMapaNav;
 
 }
 

@@ -14,15 +14,24 @@
 
 @implementation ContatosNoMapaViewController
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        self.navigationItem.title = @"Localização";
+        UIImage* icone = [UIImage imageNamed:@"mapa-contatos.png"];
+        UITabBarItem* tab = [[UITabBarItem alloc]
+                             initWithTitle:@"Mapa"
+                             image:icone
+                             tag:0];
+        self.tabBarItem = tab;
+
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImage* icone = [UIImage imageNamed:@"mapa-contatos.png"];
-    UITabBarItem* tab = [[UITabBarItem alloc]
-                        initWithTitle:@"Mapa"
-                        image:icone
-                        tag:0];
-    self.tabBarItem = tab;
-    // Do any additional setup after loading the view from its nib.
+       // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
