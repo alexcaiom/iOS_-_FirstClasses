@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "Contato.h"
 #import "ContatoDAO.h"
 #import "FormularioContatoViewControllerDelegate.h"
@@ -20,8 +22,12 @@
  @property IBOutlet UITextField *site;
  @property IBOutlet UIButton *botaoFoto;
 
+@property IBOutlet UITextField *latitude;
+@property IBOutlet UITextField *longitude;
+
  @property ContatoDAO* contatoDAO;
  @property Contato* contato;
+
 
  - (void) imprimirContato : (Contato*) contato;
 

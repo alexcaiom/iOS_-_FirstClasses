@@ -76,6 +76,35 @@
                                 <rect key="frame" x="20" y="78" width="100" height="123"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUF-ir-g7T">
+                                <rect key="frame" x="11" y="453" width="69" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUq-9H-eeZ">
+                                <rect key="frame" x="88" y="453" width="77" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWR-Re-5Hk">
+                                <rect key="frame" x="11" y="424" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oj4-dg-bTc">
+                                <rect key="frame" x="88" y="424" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjH-ij-Vfj">
+                                <rect key="frame" x="240" y="424" width="30" height="59"/>
+                                <state key="normal" title="Button" image="gps"/>
+                                <connections>
+                                    <action selector="buscarCoordenadas" destination="BYZ-38-t0r" eventType="touchUpInside" id="yEJ-38-h9Q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -87,6 +116,8 @@
                     <connections>
                         <outlet property="email" destination="35t-y4-CYO" id="dCd-gC-b1T"/>
                         <outlet property="endereco" destination="hAD-Sv-PTD" id="d3w-dM-wEZ"/>
+                        <outlet property="latitude" destination="cUF-ir-g7T" id="TU2-8b-HvX"/>
+                        <outlet property="longitude" destination="bUq-9H-eeZ" id="KHL-cl-OOo"/>
                         <outlet property="nome" destination="Kru-By-qpi" id="9Qc-zg-Y95"/>
                         <outlet property="site" destination="z0n-6c-oYj" id="BfG-Ia-w3g"/>
                         <outlet property="telefone" destination="My9-gH-cgi" id="rt3-Se-aP4"/>
@@ -97,4 +128,7 @@
             <point key="canvasLocation" x="354" y="283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gps" width="30" height="30"/>
+    </resources>
 </document>

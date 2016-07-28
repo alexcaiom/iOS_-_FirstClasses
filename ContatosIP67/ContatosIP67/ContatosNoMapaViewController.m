@@ -18,6 +18,9 @@
     self = [super init];
     if (self) {
         self.navigationItem.title = @"Localização";
+        self.manager = [CLLocationManager new];
+        [self.manager requestWhenInUseAuthorization];
+        
         UIImage* icone = [UIImage imageNamed:@"mapa-contatos.png"];
         UITabBarItem* tab = [[UITabBarItem alloc]
                              initWithTitle:@"Mapa"
@@ -31,6 +34,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    MKUserTrackingBarButtonItem* botaoGPS = [[MKUserTrackingBarButtonItem alloc]
+                                             initWithMapView:self.mapa];
+    self.navigationItem.rightBarButtonItem = botaoGPS;
        // Do any additional setup after loading the view from its nib.
 }
 

@@ -55,16 +55,24 @@
     self.contato.email = email;
     self.contato.site = site;
     
+    if ([self.botaoFoto backgroundImageForState:UIControlStateNormal]) {
+        self.contato.foto = [self.botaoFoto backgroundImageForState:UIControlStateNormal];
+    }
+    self.contato.latitude = [NSNumber numberWithFloat:[self.latitude.text floatValue]];
+    self.contato.longitude = [NSNumber numberWithFloat:[self.longitude.text floatValue]];
+    
     //[array addObject : contato];
-    [self.contatoDAO adiciona:self.contato];
+    
     //[self limpaFormulario ];
     
-    [self.navigationController popViewControllerAnimated:true];
     
 }
 
 - (void) alterarContato {
     [self pegaDadosDoFormulario];
+    [self.contatoDAO adiciona:self.contato];
+    
+    [self.navigationController popViewControllerAnimated:true];
     //mexer no DAO
     //passar
 }
@@ -102,6 +110,14 @@
         self.telefone.text = self.contato.telefone;
         self.email.text = self.contato.email;
         self.endereco.text = self.contato.endereco;
+        
+        if (self.contato.foto) {
+            [self.botaoFoto setBackgroundImage:self.contato.foto
+                                      forState:UIControlStateNormal];
+        }
+        
+        self.latitude.text = [self.contato.latitude stringValue];
+        self.longitude.text = [self.contato.longitude stringValue];
     }
 }
 
@@ -125,6 +141,17 @@
     [self.botaoFoto setBackgroundImage:imagemSelecionada forState:UIControlStateNormal];
     [self.botaoFoto setTitle:nil forState:UIControlStateNormal];
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction) buscarCoordenadas {
+    CLGeocoder* geo = [CLGeocoder new];
+    [geo geocodeAddressString:self.endereco.text
+            completionHandler:^(NSArray<CLPlacemark *> * resultados, NSError * _Nullable error) {
+                CLPlacemark* resultado = resultados[0];
+                CLLocationCoordinate2D coordenada = resultado.location.coordinate;
+                self.latitude.text = [NSString stringWithFormat:@"%f", coordenada.latitude];
+                self.longitude.text = [NSString stringWithFormat:@"%f", coordenada.longitude];
+            }];
 }
 
 - (void)viewDidLoad {

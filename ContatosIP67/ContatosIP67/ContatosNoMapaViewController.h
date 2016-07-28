@@ -11,6 +11,8 @@
 
 @interface ContatosNoMapaViewController : UIViewController
 
-
+    //Mapa deve ser um Outlet, pois mapa ira interagir com a tela.
+ @property IBOutlet MKMapView* mapa;
+ @property CLLocationManager* manager;
 
 @end
