@@ -7,7 +7,6 @@
 //
 
 #import "ContatosNoMapaViewController.h"
-#import "ContatoDAO.h"
 
 @interface ContatosNoMapaViewController ()
 
@@ -62,6 +61,34 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (MKAnnotationView*) mapView : (MKMapView*) mapView viewForAnnotation:(nonnull id<MKAnnotation>)annotation {
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+    
+    static NSString* identificador = @"pino";
+    MKPinAnnotationView* pino = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                 reuseIdentifier:identificador];
+    
+    if (!pino) {
+        pino = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identificador];
+    } else {
+        pino.annotation = annotation;
+    }
+    
+    Contato* contato = (Contato*) annotation;
+    pino.annotation = MKPinAnnotationColorRed;
+    pino.canShowCallout = YES;
+    
+    if (contato.foto) {
+        UIImageView* imagemContato = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 32.0, 32.0)];
+        imagemContato.image = contato.foto;
+        pino.leftCalloutAccessoryView = imagemContato;
+    }
+    
+    return pino;
 }
 
 /*
