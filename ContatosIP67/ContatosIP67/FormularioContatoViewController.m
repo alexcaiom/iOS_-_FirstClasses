@@ -143,7 +143,8 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction) buscarCoordenadas {
+- (IBAction) buscarCoordenadas : (id)sender {
+    UIButton* botao = (UIButton*) sender;
     CLGeocoder* geo = [CLGeocoder new];
     [geo geocodeAddressString:self.endereco.text
             completionHandler:^(NSArray<CLPlacemark *> * resultados, NSError * _Nullable error) {
@@ -151,7 +152,14 @@
                 CLLocationCoordinate2D coordenada = resultado.location.coordinate;
                 self.latitude.text = [NSString stringWithFormat:@"%f", coordenada.latitude];
                 self.longitude.text = [NSString stringWithFormat:@"%f", coordenada.longitude];
+                [self.loading stopAnimating];
+                botao.hidden = NO;
+                self.loading.hidden = YES;
+
             }];
+    botao.hidden = YES;
+    self.loading.hidden = NO;
+    [self.loading startAnimating];
 }
 
 - (void)viewDidLoad {

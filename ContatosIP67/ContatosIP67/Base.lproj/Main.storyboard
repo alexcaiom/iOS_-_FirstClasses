@@ -74,15 +74,20 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mf3-9x-Rmv">
                                 <rect key="frame" x="20" y="78" width="100" height="123"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Foto"/>
+                                <connections>
+                                    <action selector="selecionaFoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="STK-tj-Hxb"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUF-ir-g7T">
-                                <rect key="frame" x="11" y="453" width="69" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUF-ir-g7T">
+                                <rect key="frame" x="11" y="453" width="109" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="latitude"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUq-9H-eeZ">
-                                <rect key="frame" x="88" y="453" width="77" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUq-9H-eeZ">
+                                <rect key="frame" x="141" y="453" width="107" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="longitude"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -93,18 +98,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oj4-dg-bTc">
-                                <rect key="frame" x="88" y="424" width="77" height="21"/>
+                                <rect key="frame" x="141" y="424" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjH-ij-Vfj">
-                                <rect key="frame" x="240" y="424" width="30" height="59"/>
+                                <rect key="frame" x="265" y="424" width="30" height="59"/>
                                 <state key="normal" title="Button" image="gps"/>
                                 <connections>
-                                    <action selector="buscarCoordenadas" destination="BYZ-38-t0r" eventType="touchUpInside" id="yEJ-38-h9Q"/>
+                                    <action selector="buscarCoordenadas:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JEz-UA-Jfk"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8Qy-YZ-BTX">
+                                <rect key="frame" x="270" y="444" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -114,9 +122,11 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="botaoFoto" destination="Mf3-9x-Rmv" id="8kr-he-9co"/>
                         <outlet property="email" destination="35t-y4-CYO" id="dCd-gC-b1T"/>
                         <outlet property="endereco" destination="hAD-Sv-PTD" id="d3w-dM-wEZ"/>
                         <outlet property="latitude" destination="cUF-ir-g7T" id="TU2-8b-HvX"/>
+                        <outlet property="loading" destination="8Qy-YZ-BTX" id="awc-5w-yf6"/>
                         <outlet property="longitude" destination="bUq-9H-eeZ" id="KHL-cl-OOo"/>
                         <outlet property="nome" destination="Kru-By-qpi" id="9Qc-zg-Y95"/>
                         <outlet property="site" destination="z0n-6c-oYj" id="BfG-Ia-w3g"/>

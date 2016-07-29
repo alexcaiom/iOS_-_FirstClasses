@@ -7,6 +7,7 @@
 //
 
 #import "ContatosNoMapaViewController.h"
+#import "ContatoDAO.h"
 
 @interface ContatosNoMapaViewController ()
 
@@ -37,7 +38,25 @@
     MKUserTrackingBarButtonItem* botaoGPS = [[MKUserTrackingBarButtonItem alloc]
                                              initWithMapView:self.mapa];
     self.navigationItem.rightBarButtonItem = botaoGPS;
+    
        // Do any additional setup after loading the view from its nib.
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [self carregaContatosNoMapa];
+    [super viewWillAppear:animated];
+}
+
+- (void) viewDidDisappear:(BOOL)animated {
+    [self.mapa removeAnnotations:_contatoDAO.contatos];
+    [super viewDidDisappear:animated];
+}
+
+- (void) carregaContatosNoMapa {
+    _contatoDAO = [ContatoDAO contatoDAOInstance];
+    NSArray* contatos = _contatoDAO.contatos;
+    [self.mapa addAnnotations:contatos];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "ContatoDAO.h"
 
-@interface ContatosNoMapaViewController : UIViewController
+@interface ContatosNoMapaViewController : UIViewController 
 
     //Mapa deve ser um Outlet, pois mapa ira interagir com a tela.
  @property IBOutlet MKMapView* mapa;
  @property CLLocationManager* manager;
+ @property ContatoDAO* contatoDAO;
 
 @end
