@@ -30,6 +30,7 @@
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
         
         self.contatoDAO = [ContatoDAO contatoDAOInstance];
+        [self.contatoDAO listar];
         self.posicao = -1;
         self.numeroDeSessoes = 1;
         

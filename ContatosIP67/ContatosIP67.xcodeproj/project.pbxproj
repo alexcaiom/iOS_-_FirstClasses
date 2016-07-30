@@ -15,6 +15,7 @@
 		B06D45691D484107008558A9 /* ContatosNoMapaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B06D45671D484107008558A9 /* ContatosNoMapaViewController.xib */; };
 		B06D456B1D48422E008558A9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B06D456A1D48422E008558A9 /* MapKit.framework */; };
 		B070AE551D42DDBE00E80EB4 /* FormularioContatoViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B070AE541D42DDBE00E80EB4 /* FormularioContatoViewControllerDelegate.m */; };
+		B074116C1D4C14D7009D9CE3 /* CoreDataInfra.m in Sources */ = {isa = PBXBuildFile; fileRef = B074116B1D4C14D7009D9CE3 /* CoreDataInfra.m */; };
 		B09365521D3D9A3200445EF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B09365511D3D9A3200445EF1 /* main.m */; };
 		B09365551D3D9A3200445EF1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B09365541D3D9A3200445EF1 /* AppDelegate.m */; };
 		B09365581D3D9A3200445EF1 /* FormularioContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B09365571D3D9A3200445EF1 /* FormularioContatoViewController.m */; };
@@ -43,6 +44,8 @@
 		B06D456A1D48422E008558A9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B070AE531D42DDBE00E80EB4 /* FormularioContatoViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormularioContatoViewControllerDelegate.h; sourceTree = "<group>"; };
 		B070AE541D42DDBE00E80EB4 /* FormularioContatoViewControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormularioContatoViewControllerDelegate.m; sourceTree = "<group>"; };
+		B074116A1D4C14D7009D9CE3 /* CoreDataInfra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataInfra.h; sourceTree = "<group>"; };
+		B074116B1D4C14D7009D9CE3 /* CoreDataInfra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataInfra.m; sourceTree = "<group>"; };
 		B093654D1D3D9A3200445EF1 /* ContatosIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatosIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09365511D3D9A3200445EF1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B09365531D3D9A3200445EF1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				B09365641D3D9A3200445EF1 /* Info.plist */,
 				B093655C1D3D9A3200445EF1 /* ContatosIP67.xcdatamodeld */,
 				B09365501D3D9A3200445EF1 /* Supporting Files */,
+				B074116A1D4C14D7009D9CE3 /* CoreDataInfra.h */,
+				B074116B1D4C14D7009D9CE3 /* CoreDataInfra.m */,
 			);
 			path = ContatosIP67;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B062403D1D3EDF2100D7693B /* Contato.m in Sources */,
+				B074116C1D4C14D7009D9CE3 /* CoreDataInfra.m in Sources */,
 				B09365581D3D9A3200445EF1 /* FormularioContatoViewController.m in Sources */,
 				B0EF82A71D46CCF00064A4B7 /* GerenciadorDeAcoes.m in Sources */,
 				B06240431D3F0DE200D7693B /* ListaContatosViewController.m in Sources */,

@@ -8,16 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import "Contato.h"
+#import "CoreDataInfra.h"
 
 @interface ContatoDAO : NSObject
 
     +(id) contatoDAOInstance;
+    @property NSString* nomeDaEntidade;
     @property (strong) NSMutableArray<Contato*> *contatos;
 
     - (void) adiciona : (Contato*) contato ;
+    - (void) salva; 
     - (Contato*) getContato : (NSInteger) id;
     - (void) removeContato : (NSInteger) id;
+    - (void) listar;
 
-    -(NSInteger) buscaPosicaoDoContato : (Contato*) contato;
+    - (NSInteger) buscaPosicaoDoContato : (Contato*) contato;
+
+
+    - (Contato*) criaNovoContato;
+
+    @property CoreDataInfra* infra;
 
 @end

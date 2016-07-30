@@ -6,6 +6,7 @@
 //  Copyright © 2016 ios6233. All rights reserved.
 //
 
+#import <AFNetworking/AFNetworking.h>
 #import "FormularioContatoViewController.h"
 
 @interface FormularioContatoViewController ()
@@ -39,7 +40,6 @@
 }
 
 - (IBAction) pegaDadosDoFormulario {
-    //NSMutableArray<Contato*> *array = [NSMutableArray new];
     NSString *nome = [self.nome text];
     NSString *telefone = [self.telefone text];
     NSString *endereco = [self.endereco text];
@@ -47,7 +47,7 @@
     NSString *site = [self.site text];
     
     if (!self.contato) {
-        self.contato = [Contato new];
+        self.contato = [self.contatoDAO criaNovoContato];
     }
     self.contato.nome = nome;
     self.contato.telefone = telefone;
@@ -61,16 +61,11 @@
     self.contato.latitude = [NSNumber numberWithFloat:[self.latitude.text floatValue]];
     self.contato.longitude = [NSNumber numberWithFloat:[self.longitude.text floatValue]];
     
-    //[array addObject : contato];
-    
-    //[self limpaFormulario ];
-    
-    
 }
 
 - (void) alterarContato {
     [self pegaDadosDoFormulario];
-    [self.contatoDAO adiciona:self.contato];
+    [self.contatoDAO salva];
     
     [self.navigationController popViewControllerAnimated:true];
     //mexer no DAO
@@ -160,6 +155,43 @@
     botao.hidden = YES;
     self.loading.hidden = NO;
     [self.loading startAnimating];
+}
+
+- (IBAction) verOTempo :(id)sender {
+    AFHTTPSessionManager* gestor = [AFHTTPSessionManager manager];
+    gestor.requestSerializer = [AFJSONRequestSerializer serializer];
+    gestor.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSURL* url = [NSURL URLWithString:@"https://www.caelum.com.br/mobile"];
+    NSDictionary* params =
+    @{@"list" : @[
+              @{
+                  @"aluno" :
+                  @[
+                      @{
+                          @"nome" : @"Felipe",
+                          @"nota" : @10
+                          },
+                      @{
+                      @"nome" : @"Felipe",
+                      @"nota" : @5
+                          }
+                  ]
+                  }
+              ]
+      };
+    
+    [gestor POST:url.absoluteString
+      parameters:params
+        progress: nil
+         success:
+        ^(NSURLSessionDataTask * _Nonnull operacao, id   resposta) {
+            NSLog(@"JSON: %@", resposta);
+         }
+         failure:
+        ^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"Erro: %@", error);
+        }];
 }
 
 - (void)viewDidLoad {

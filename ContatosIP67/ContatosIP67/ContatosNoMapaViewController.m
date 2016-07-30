@@ -53,7 +53,7 @@
 
 - (void) carregaContatosNoMapa {
     _contatoDAO = [ContatoDAO contatoDAOInstance];
-    NSArray* contatos = _contatoDAO.contatos;
+    NSArray<Contato*>* contatos = _contatoDAO.contatos;
     [self.mapa addAnnotations:contatos];
     
 }
